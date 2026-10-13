@@ -494,7 +494,7 @@ function usePrefersReducedMotion() {
  * and 1 once it has left. Sampled on a rAF tick so a fast wheel coalesces into
  * one re-typeset per frame instead of one per scroll event.
  */
-function useTravel(ref: React.RefObject<HTMLElement>, enabled: boolean) {
+function useTravel(ref: React.RefObject<HTMLElement | null>, enabled: boolean) {
   const [p, setP] = React.useState(0.5)
 
   React.useEffect(() => {
