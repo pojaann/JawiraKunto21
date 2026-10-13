@@ -1,38 +1,37 @@
 "use client";
 
 import React from "react";
-import { Camera, Globe, Mail, X } from "lucide-react";
+import { Camera, Globe, Mail } from "lucide-react";
 import { MinimalistHero } from "@/components/ui/minimalist-hero";
 
 const MinimalistHeroDemo = () => {
   const navLinks = [
-    { label: "HOME", href: "#" },
-    { label: "PRODUCT", href: "#" },
-    { label: "STORE", href: "#" },
-    { label: "ABOUT US", href: "#" },
+    { label: "ABOUT", href: "#about" },
+    { label: "JOURNEY", href: "#journey" },
+    { label: "PROJECT", href: "#project" },
+    { label: "CONTACT", href: "#contact" },
   ];
 
   const socialLinks = [
-    { icon: Globe, href: "https://www.facebook.com" },
-    { icon: Camera, href: "https://www.instagram.com" },
-    { icon: X, href: "https://x.com" },
-    { icon: Mail, href: "https://www.linkedin.com" },
+    { icon: Camera, href: "https://www.instagram.com/pojaann/" },
+    { icon: Globe, href: "https://muhammad-fauzan.vercel.app/" },
+    { icon: Mail, href: "https://www.linkedin.com/in/muhammad-fauzan-474207365" },
   ];
 
   return (
     <MinimalistHero
-      logoText="mnmlst."
+      logoText="jawirakunto."
       navLinks={navLinks}
-      mainText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ultrices, justo vel tempus."
-      readMoreLink="#"
-      imageSrc="/Hero.png"
-      imageAlt="A portrait of a person in profile against a warm background."
+      mainText="Mahasiswa Teknik Informatika. Fokus ke web, desain digital, dan membangun aplikasi yang jelas dipakai orang."
+      readMoreLink="#about"
+      imageSrc="/GambarHero.png"
+      imageAlt="Potret Muhammad Fauzan"
       overlayText={{
-        part1: "less is",
+        part1: "Fast is",
         part2: "more.",
       }}
       socialLinks={socialLinks}
-      locationText="Arlington Heights, IL"
+      locationText="Muhammad Fauzan"
     />
   );
 };

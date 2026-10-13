@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -52,10 +52,13 @@ export const MinimalistHero = ({
   locationText,
   className,
 }: MinimalistHeroProps) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div
+      id="home"
       className={cn(
-        "relative flex h-screen w-full flex-col items-center justify-between overflow-hidden bg-background p-8 font-sans md:p-12",
+        "relative flex min-h-dvh w-full flex-col items-center justify-between overflow-hidden bg-background p-8 font-sans md:p-12",
         className
       )}
     >
@@ -77,17 +80,42 @@ export const MinimalistHero = ({
           ))}
         </div>
         <motion.button
+          type="button"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col space-y-1.5 md:hidden"
-          aria-label="Open menu"
+          className="relative z-50 flex flex-col space-y-1.5 md:hidden"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((open) => !open)}
         >
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-6 bg-foreground"></span>
-          <span className="block h-0.5 w-5 bg-foreground"></span>
+          <span className={cn("block h-0.5 w-6 bg-foreground transition", menuOpen && "translate-y-2 rotate-45")}></span>
+          <span className={cn("block h-0.5 w-6 bg-foreground transition", menuOpen && "opacity-0")}></span>
+          <span className={cn("block h-0.5 w-5 bg-foreground transition", menuOpen && "w-6 -translate-y-2 -rotate-45")}></span>
         </motion.button>
       </header>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.nav
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 z-40 flex flex-col items-center justify-center gap-8 bg-background/95 backdrop-blur-sm md:hidden"
+          >
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-2xl font-medium tracking-widest"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.nav>
+        )}
+      </AnimatePresence>
 
       {/* Main Content Area */}
       <div className="relative grid w-full max-w-7xl flex-grow grid-cols-1 items-center md:grid-cols-3">
@@ -100,7 +128,7 @@ export const MinimalistHero = ({
         >
           <p className="mx-auto max-w-xs text-sm leading-relaxed text-foreground/80 md:mx-0">{mainText}</p>
           <a href={readMoreLink} className="mt-4 inline-block text-sm font-medium text-foreground underline decoration-from-font">
-            Read More
+            Lihat portofolio
           </a>
         </motion.div>
 

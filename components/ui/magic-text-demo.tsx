@@ -2,17 +2,18 @@ import { MagicText } from "@/components/ui/magic-text";
 
 const Demo = () => {
   return (
-    <section className="relative">
-      <p className="pointer-events-none absolute left-1/2 top-8 z-10 -translate-x-1/2 text-sm text-foreground/60">
-        Scroll Down 👇
+    <section id="about" className="scroll-mt-8 mx-auto w-full max-w-5xl px-6 py-20 md:px-12 md:py-28">
+      <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-foreground/50">
+        About
       </p>
-      <div className="relative flex items-center justify-center pb-[30rem] pt-32">
-        <MagicText
-          text={
-            "Hi there! I'm preet, creator of HextaUI. Thank you so much of all the support and love you've shown me. I hope you enjoy using HextaUI as much as I enjoyed creating it."
-          }
-        />
-      </div>
+      <h2 className="mb-8 text-2xl font-semibold tracking-tight md:text-3xl">
+        Siapa saya
+      </h2>
+      <MagicText
+        text={
+          "Mahasiswa Teknik Informatika dengan latar SMK RPL. Tertarik web, desain digital, dan teknologi baru. Pernah jadi IT Support dan Data Entry di instansi pemerintah. Senang merancang situs yang rapi, mudah dipakai, dan terus berkembang."
+        }
+      />
     </section>
   );
 };

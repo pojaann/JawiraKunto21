@@ -13,14 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "mnmlst.",
-  description: "Minimalist hero — less is more.",
+  title: "Muhammad Fauzan — jawirakunto",
+  description:
+    "Mahasiswa Teknik Informatika. Web, desain digital, dan pengembangan aplikasi.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
